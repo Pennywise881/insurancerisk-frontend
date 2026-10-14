@@ -1,0 +1,133 @@
+
+<div class="min-h-screen bg-white px-8 py-10">
+
+  <!-- Top separator -->
+  <div class="border-t border-gray-200"></div>
+
+  <!-- Page header -->
+  <div class="flex items-center justify-between py-8">
+    <div>
+      <h1 class="text-2xl font-semibold text-slate-900">
+        Applications
+      </h1>
+
+      <p class="mt-2 text-sm text-slate-500">
+        Manage insurance applications and request risk assessments.
+      </p>
+    </div>
+
+    <button
+      type="button"
+      routerLink="/create-application"
+      class="cursor-pointer rounded-lg bg-blue-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
+    >
+      + Create Application
+    </button>
+  </div>
+
+  <!-- Applications container -->
+  <div class="overflow-hidden rounded-lg border border-slate-200 bg-white">
+
+    <!-- Search and filter section -->
+    <div class="flex items-center gap-4 p-4">
+
+      <!-- Search bar -->
+      <div class="min-w-0 flex-1">
+        <div class="relative">
+
+          <!-- Magnifying glass icon -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+
+          <input
+            type="text"
+            placeholder="Search by applicant name"
+            [(ngModel)]="searchTerm"
+            class="w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder-slate-400 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+          />
+        </div>
+      </div>
+
+      <!-- Status dropdown -->
+      <div class="w-48 shrink-0">
+        <select
+        name="status"
+        [(ngModel)]="selectedStatus"
+          class="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+        >
+          <option value="ALL">All Statuses</option>
+          <option value="ASSESSED">ASSESSED</option>
+          <option value="PENDING">PENDING</option>
+        </select>
+      </div>
+
+    </div>
+    <!-- <p>Applications count: {{ applications().length }}</p> -->
+    <!-- Applications table -->
+    <div class="p-4">
+    <div class="max-h-[500px] overflow-y-auto rounded-lg border border-slate-200">
+        <table class="w-full text-left text-sm">
+
+        <!-- Table header -->
+        <thead class="sticky top-0 z-10 border-slate-200 bg-slate-50 text-xs uppercase tracking-wide text-slate-500">
+            <tr>
+            <th class="px-6 py-4 font-semibold">ID</th>
+            <th class="px-6 py-4 font-semibold">Applicant Name</th>
+            <th class="px-6 py-4 font-semibold">Insurance Type</th>
+            <th class="px-6 py-4 font-semibold">Coverage Amount</th>
+            <th class="px-6 py-4 font-semibold">Status</th>
+            <th class="px-6 py-4 text-right font-semibold">Actions</th>
+            </tr>
+        </thead>
+
+            <!-- Table body -->
+            <tbody class="divide-y divide-slate-200 text-slate-700">
+                @for (application of filteredApplications; track application.id) {
+                <tr>
+                    <td class="px-4 py-3">{{ application.id }}</td>
+                    <td class="px-4 py-3">{{ application.applicantName }}</td>
+                    <td class="px-4 py-3">{{ application.insuranceType }}</td>
+                    <td class="px-4 py-3">
+                    {{ application.coverageAmount | currency:'USD':'symbol':'1.0-0' }}
+                    </td>
+                    <td class="px-4 py-3">
+                    <span
+                        class="rounded-full px-2 py-1 text-xs font-medium"
+                        [class.bg-green-100]="application.status === 'ASSESSED'"
+                        [class.text-green-700]="application.status === 'ASSESSED'"
+                        [class.bg-yellow-100]="application.status === 'PENDING'"
+                        [class.text-yellow-700]="application.status === 'PENDING'"
+                    >
+                        {{ application.status }}
+                    </span>
+                    </td>
+                    <td class="px-4 py-3 text-right">
+                        <button
+                        type="button"
+                        class="cursor-pointer rounded-md border border-slate-300 bg-white px-3 py-1.5 text-sm font-medium text-blue-600 transition hover:bg-slate-50"
+                        (click)="viewAssessment(application.id)"
+                        >
+                        View
+                        </button>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+  </div>
+
+</div>

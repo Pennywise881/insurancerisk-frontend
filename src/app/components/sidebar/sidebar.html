@@ -1,0 +1,88 @@
+
+<div class="min-h-screen bg-slate-50">
+  <aside class="flex min-h-screen w-72 flex-col bg-[oklch(20.8%_0.042_265.755)] p-5 text-white">
+
+    <!-- Brand -->
+    <div class="flex items-center gap-3">
+      <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500">
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
+
+      <div>
+        <h1 class="text-lg font-bold tracking-tight">Risk Platform</h1>
+        <p class="text-xs text-blue-100">Insurance Risk Assessment</p>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-6 border-t border-white/20"></div>
+
+    <!-- Navigation -->
+    <nav class="flex-1 space-y-2">
+
+      <a 
+        routerLink="/applications"
+        routerLinkActive="bg-blue-500/20"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white">
+        <!-- Applications icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="3" width="16" height="18" rx="2"/>
+          <path d="M8 8h8M8 12h8M8 16h5"/>
+        </svg>
+        <span>Applications</span>
+      </a>
+
+      <a 
+        routerLink="/assessments"
+        routerLinkActive="bg-blue-500/20"
+        class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white">
+        <!-- Assessments icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3 3 7l9 4 9-4-9-4z"/>
+          <path d="m3 12 9 4 9-4M3 17l9 4 9-4"/>
+        </svg>
+        <span>Assessments</span>
+      </a>
+
+      <a 
+        routerLink="/settings"
+        routerLinkActive="bg-blue-500/20"
+        class="flex items-center gap-3 rounded-lg px-3 py-3 text-sm text-blue-100 transition hover:bg-white/10 hover:text-white">
+        <!-- Settings icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.6a8 8 0 0 1-1.8 1l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.8-1l-1.7.6-1.4-2.4 1.4-1.1a8 8 0 0 1 0-2l-1.4-1.1 1.4-2.4 1.7.6a8 8 0 0 1 1.8-1l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.8 1l1.7-.6 1.4 2.4-1.4 1.1a8 8 0 0 1 0 2z" transform="translate(-1 -1) scale(1.08)"/>
+        </svg>
+        <span>Settings</span>
+      </a>
+
+    </nav>
+
+    <!-- Bottom user profile -->
+    <div class="mt-6 border-t border-white/20 pt-5">
+      <div class="flex items-center gap-3">
+        <div class="flex h-11 w-11 items-center justify-center rounded-full bg-blue-400 text-sm font-bold text-[#191970]">
+          NZ
+        </div>
+
+        <div>
+          <p class="text-sm font-semibold">Nafi Zaman</p>
+          <p class="text-xs text-blue-200">Developer</p>
+        </div>
+      </div>
+    </div>
+
+  </aside>
+</div>
